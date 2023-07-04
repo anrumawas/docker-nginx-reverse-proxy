@@ -1,0 +1,11 @@
+services:
+  dummy-backend:
+    build: ./dummy-backend
+    ports:
+      - "3000:3000"
+  dummy-frontend:
+    build: ./dummy-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - dummy-backend
