@@ -12,6 +12,9 @@ services:
   node-red:
     image: nodered/node-red:latest
     volumes:
-      - I:\Docker\mynodered\data:/data
+      - nodenginx:/data
     ports:
       - "1880:1880"
+volumes:
+  nodenginx:
+    name: nodenginx

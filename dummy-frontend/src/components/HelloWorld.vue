@@ -8,18 +8,20 @@ defineProps({
 const count = ref(0)
 const luckyNum = ref(0)
 const updateLuckyNum = () =>{
-  let apiLink = window.location.protocol + "//" + window.location.hostname + ':3000/api/randomize'
+  let apiLink = window.location.protocol + "//" + window.location.hostname + '/api'
   axios.get(apiLink)
   .then(res =>{
     luckyNum.value = res.data.val
+    console.log(res)
   })
   
 }
 const updateNode = () =>{
-  let apiLink = window.location.protocol + "//" + window.location.hostname + ':1880/node/test'
+  let apiLink = window.location.protocol + "//" + window.location.hostname + '/node'
   axios.get(apiLink)
   .then(res =>{
-    luckyNum.value = res.data.val
+    luckyNum.value = res.data
+    console.log(res)
   })
   
 }
