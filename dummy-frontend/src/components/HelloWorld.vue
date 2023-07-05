@@ -15,6 +15,14 @@ const updateLuckyNum = () =>{
   })
   
 }
+const updateNode = () =>{
+  let apiLink = window.location.protocol + "//" + window.location.hostname + ':1880/node/test'
+  axios.get(apiLink)
+  .then(res =>{
+    luckyNum.value = res.data.val
+  })
+  
+}
 </script>
 
 <template>
@@ -26,6 +34,10 @@ const updateLuckyNum = () =>{
 
   <div class="card">
     <button type="button" @click="updateLuckyNum">your lucky num is {{ luckyNum }}</button>
+  </div>
+
+  <div class="card">
+    <button type="button" @click="updateNode">Msg.payload {{ luckyNum }}</button>
   </div>
 
 </template>

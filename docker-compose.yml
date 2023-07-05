@@ -9,3 +9,9 @@ services:
       - "80:80"
     depends_on:
       - dummy-backend
+  node-red:
+    image: nodered/node-red:latest
+    volumes:
+      - I:\Docker\mynodered\data:/data
+    ports:
+      - "1880:1880"
