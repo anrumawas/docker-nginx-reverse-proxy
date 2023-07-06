@@ -1,11 +1,20 @@
 services:
   dummy-backend:
     build: ./dummy-backend
-    ports:
-      - "3000:3000"
+    # ports:
+    #   - "3000:3000"
   dummy-frontend:
     build: ./dummy-frontend
     ports:
       - "80:80"
     depends_on:
       - dummy-backend
+  node-red:
+    image: nodered/node-red:latest
+    volumes:
+      - nodenginx:/data
+    # ports:
+    #   - "1880:1880"
+volumes:
+  nodenginx:
+    name: nodenginx
